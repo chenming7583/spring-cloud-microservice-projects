@@ -13,6 +13,7 @@
 	
 	<modules>
 		<module>microservice-discovery-eureka-project</module>
+		<module>microservice-api-gateway-project</module>
 	</modules>
 	
 	<properties>
