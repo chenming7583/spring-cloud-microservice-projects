@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: auth-server
+  output:
+    ansi:
+      enabled: always
+    
+server:
+  port: 9091
+  context-path: /uaa
+  
+eureka:
+  instance:
+    hostname: microservice-auth-server
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+     defaultZone: http://discovery:8761/eureka/
