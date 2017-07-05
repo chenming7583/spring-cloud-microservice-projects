@@ -1,6 +1,6 @@
 spring:
   application:
-    name: auth-server
+    name: microservice-auth-server
   output:
     ansi:
       enabled: always
@@ -11,8 +11,8 @@ server:
   
 eureka:
   instance:
-    hostname: microservice-auth-server
-    prefer-ip-address: true
+    hostname: auth-server
+#    prefer-ip-address: true
   client:
     serviceUrl:
      defaultZone: http://discovery:8761/eureka/
