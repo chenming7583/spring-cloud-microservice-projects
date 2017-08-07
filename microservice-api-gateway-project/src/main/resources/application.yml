@@ -7,6 +7,6 @@ zuul:
     auth-server:
       path: /uaa/**
       serviceId: auth-server
-      sensitiveHeaders:
-      strip-prefix: false   
+#      sensitiveHeaders:
+#      strip-prefix: false   
       
