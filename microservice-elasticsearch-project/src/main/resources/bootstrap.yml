@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: microservice-elasticsearch-server
+  output:
+    ansi:
+      enabled: always
+    
+server:
+  port: 9200
+  
+eureka:
+  instance:
+    hostname: elasticsearch
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+     defaultZone: http://discovery:8761/eureka/

@@ -15,6 +15,7 @@
 		<module>microservice-discovery-eureka-project</module>
 		<module>microservice-api-gateway-project</module>
 		<module>microservice-auth-server-project</module>
+		<module>microservice-elasticsearch-project</module>
 	</modules>
 	
 	<properties>

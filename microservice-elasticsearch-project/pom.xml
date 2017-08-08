@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <name>microservice-elasticsearch-project</name>
+  <artifactId>microservice-elasticsearch-project</artifactId>
+  <packaging>jar</packaging>
+  
+  <parent>
+    <groupId>com.chenm.springcloud.miroservice</groupId>
+    <artifactId>spring-cloud-microservice-projects</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <dependencies>
+  	<dependency>  
+    	<groupId>org.springframework.boot</groupId>  
+    	<artifactId>spring-boot-starter-web</artifactId>  
+	</dependency> 
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-eureka</artifactId>
+	</dependency> 
+  </dependencies>
+  
+  <dependencyManagement>
+  	<dependencies>
+	  	<!-- spring-data-elasticsearch -->
+	    <dependency>
+	        <groupId>org.springframework.data</groupId>
+	        <artifactId>spring-data-elasticsearch</artifactId>
+	        <version>3.0.0.RC2</version>
+	    </dependency>
+  	</dependencies>
+  </dependencyManagement>
+  
+</project>
