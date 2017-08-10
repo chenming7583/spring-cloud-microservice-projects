@@ -4,5 +4,11 @@ spring:
       repositories:
         enabled: true
       cluster-nodes: 192.168.20.128:9300
-#      cluster-name: elasticsearch
+      cluster-name: elasticsearch
+      local: false
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 60s
+    
 

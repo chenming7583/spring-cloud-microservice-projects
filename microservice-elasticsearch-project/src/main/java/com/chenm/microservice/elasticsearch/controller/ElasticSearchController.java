@@ -1,4 +1,4 @@
-package com.chenm.microservice.elasticsearch.project;
+package com.chenm.microservice.elasticsearch.controller;
 
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.client.transport.TransportClient;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ElasticSearchController {
 	
 	@Autowired
-	private TransportClient transportClient;
+	private TransportClient client;
 	
 	@RequestMapping("/index")
 	public String index(){
 		
-		GetResponse response = transportClient.prepareGet("information", "article", "ssss").get();
+		GetResponse response = client.prepareGet("information", "article", "ssss").get();
 		System.out.println(response);
 		
 		return "index";
