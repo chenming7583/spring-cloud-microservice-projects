@@ -20,10 +20,10 @@ public class ElasticsearchConfiguration implements FactoryBean<TransportClient>,
 
 	private static final Logger logger = LoggerFactory.getLogger(ElasticsearchConfiguration.class);
 	
-	@Value("spring.data.elasticsearch.cluster-nodes")
+	@Value("${spring.data.elasticsearch.cluster-nodes}")
 	private String clusterNodes;
 	
-	@Value("spring.data.elasticsearch.cluster-name")
+	@Value("${spring.data.elasticsearch.cluster-name}")
 	private String clusterName;
 	
 	private TransportClient transportClient;

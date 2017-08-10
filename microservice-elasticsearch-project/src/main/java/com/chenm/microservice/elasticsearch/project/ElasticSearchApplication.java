@@ -6,17 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.chenm.microservice.elasticsearch.config.ElasticsearchConfiguration;
-
 /**
  * elastic search start
  * @author chenm
  *
  */
-@EnableAutoConfiguration
-@ComponentScan(basePackageClasses=ElasticsearchConfiguration.class)
-@EnableScheduling
 @SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages="com.chenm.microservice.elasticsearch")
+@EnableScheduling
 //@EnableEurekaClient
 public class ElasticSearchApplication 
 {
