@@ -81,7 +81,11 @@ public class ElasticsearchConfiguration implements FactoryBean<TransportClient>,
 		 * 		而直接使用addTransportAddress方法进行指定ES服务器
 		 */
 //		Settings settings = Settings.builder().put("cluster.name","clusterName").put("client.transport.sniff",true).build();
-		Settings settings = Settings.builder().put("cluster.name", clusterName).build();
+		Settings settings = Settings.builder().put("cluster.name", clusterName)
+				//.put("client.transport.ignore_cluster_name",true) // 设置为true时忽略集群名验证，忽略集群名字验证, 打开后集群名字不对也能连接上
+				//.put("client.transport.nodes_sampler_interval", 5) // 节点之间互相ping，互连检测时间间隔
+				//.put("client.transport.ping_timeout", 5) // 等待ping命令返回结果时间，默认为5秒
+				.build();
 		
 		return settings;
 	}

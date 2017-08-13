@@ -12,7 +12,7 @@ server:
 eureka:
   instance:
     hostname: auth-server
-#    prefer-ip-address: true
+    prefer-ip-address: true
   client:
     serviceUrl:
      defaultZone: http://discovery:8761/eureka/
