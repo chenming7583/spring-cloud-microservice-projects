@@ -29,7 +29,9 @@ public class ElasticSearchApplicationTest
 	@Autowired
 	private TransportClient client;
 	
-	private String indexName = "test";
+	private String indexName = "indexTest";
+	
+	private String typeName = "typeTest";
 	
 	/**
 	 * 创建索引
