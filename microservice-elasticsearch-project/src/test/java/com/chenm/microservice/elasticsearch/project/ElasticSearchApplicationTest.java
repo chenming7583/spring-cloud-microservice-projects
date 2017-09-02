@@ -1,6 +1,12 @@
 package com.chenm.microservice.elasticsearch.project;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.naming.directory.SearchResult;
 
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
@@ -10,18 +16,28 @@ import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRespon
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.ClusterAdminClient;
 import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.cluster.health.ClusterHealthStatus;
+import org.elasticsearch.common.lucene.search.function.CombineFunction;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
+import org.elasticsearch.index.query.MultiMatchQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
+import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.json.JSONObject;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.StringUtils;
 
 /**
  * elasticsearch api 测试用例
@@ -30,6 +46,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * 文档介绍
  * http://blog.csdn.net/eff666/article/details/52432181
  * http://www.cnblogs.com/luxiaoxun/archive/2015/10/11/4869509.html
+ * http://ginobefunny.com/post/search_recommendation_implemention_based_elasticsearch/ 推荐系统
  */
 @RunWith(SpringJUnit4ClassRunner.class)  //SpringJUnit支持，由此引入Spring-Test框架支持
 @SpringBootTest(classes=ElasticSearchApplication.class) //指定SpringBoot工程的Application启动类 
@@ -64,7 +81,7 @@ public class ElasticSearchApplicationTest
 	 * 创建索引
 	 */
 	@Test
-//	@Ignore
+	@Ignore
 	public void createIndex(){
 		client.admin().indices().create(new CreateIndexRequest(indexName)).actionGet();
 	}
@@ -118,7 +135,7 @@ public class ElasticSearchApplicationTest
 		} 
 	}
 	
-	 /**
+	/**
      * 创建数据
      * 
      */
@@ -140,14 +157,33 @@ public class ElasticSearchApplicationTest
 		}
     }
 	
-	 /**
+	/**
      * 通过ID查询数据，
      * test为索引库，blog为类型，id为标识
      */
 	@Test
 	@Ignore
-    public GetResponse get(){
-        return  client.prepareGet("test", "blog", "2").get();
+    public void get(){
+		GetResponse getResponse = client.prepareGet("test", "blog", "2").get();
+        System.out.println(getResponse);  
     }
-
+	/**
+	 *  QueryBuilders.inQuery("attr1", new String[{"value1","value2","value3"});
+	 *	QueryBuilders.rangeQuery("attr1").gt("value1")
+	 */
+	@Test
+	@Ignore
+	public void query(){
+	 SearchResponse actionGet = client.prepareSearch("indexName")
+                 .setTypes("typeName")
+                 .setQuery(QueryBuilders.boolQuery().must(QueryBuilders.termQuery("attr1", "value1"))
+                  ).execute().actionGet();
+     SearchHits hits = actionGet.getHits();
+     List<Map<String, Object>> matchRsult = new LinkedList<Map<String, Object>>();
+     for (SearchHit hit : hits.getHits())
+     {
+         matchRsult.add(hit.getSource());
+     }
+	}
+	
 }

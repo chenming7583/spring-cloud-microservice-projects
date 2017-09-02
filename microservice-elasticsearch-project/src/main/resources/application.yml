@@ -10,5 +10,7 @@ spring:
         transport:
           tcp:
             connect_timeout: 60s
+
+
     
 
