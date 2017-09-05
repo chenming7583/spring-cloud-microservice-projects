@@ -38,6 +38,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * http://blog.csdn.net/eff666/article/details/52432181
  * http://www.cnblogs.com/luxiaoxun/archive/2015/10/11/4869509.html
  * http://ginobefunny.com/post/search_recommendation_implemention_based_elasticsearch/ 推荐系统
+ * http://www.jianshu.com/p/8c2b47cc0c9f SpringBoot --集成HBASE/基于SpringDataHadoop 
  */
 @RunWith(SpringJUnit4ClassRunner.class)  //SpringJUnit支持，由此引入Spring-Test框架支持
 @SpringBootTest(classes=ElasticSearchApplication.class) //指定SpringBoot工程的Application启动类 
