@@ -17,13 +17,13 @@ import org.springframework.beans.factory.InitializingBean;
 public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean, DisposableBean{
 	private static final Logger logger = LoggerFactory.getLogger(HbaseConfiguration.class);
 	
-	private Admin admin;
+	private Admin hbaseAdmin;
 	public static Configuration conf;
 	public static Connection conn;
 
 	@Override
 	public Admin getObject() throws Exception {
-		return admin;
+		return hbaseAdmin;
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean,
 		conf.set("hbase.zookeeper.property.clientPort", "2181");
 		try {
 			conn = ConnectionFactory.createConnection(conf);
-			admin = conn.getAdmin();
+			hbaseAdmin = conn.getAdmin();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -55,8 +55,8 @@ public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean,
 	public void destroy() throws Exception {
 		try {
 			logger.info("closing elasticsearch client");
-			if(admin != null){
-				admin.close();
+			if(hbaseAdmin != null){
+				hbaseAdmin.close();
 			}
 			if(conn != null){
 				conn.close();

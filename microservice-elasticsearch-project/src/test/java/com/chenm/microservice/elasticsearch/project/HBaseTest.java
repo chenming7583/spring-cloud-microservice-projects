@@ -25,7 +25,7 @@ public class HBaseTest {
     private static final String QUALIFIER = "a";
     
     @Autowired
-    private Admin admin;
+    private Admin hbaseAdmin;
     
     @Test
     public void test(){
@@ -38,12 +38,12 @@ public class HBaseTest {
     }
     
     public void createTable(String tableName, String column) throws Exception {
-		if(admin.tableExists(TableName.valueOf(tableName))){
+		if(hbaseAdmin.tableExists(TableName.valueOf(tableName))){
 			System.out.println(tableName+"表已经存在！");
 		}else{
 			HTableDescriptor tableDesc = new HTableDescriptor(TableName.valueOf(tableName));
 			tableDesc.addFamily(new HColumnDescriptor(column.getBytes()));
-			admin.createTable(tableDesc);
+			hbaseAdmin.createTable(tableDesc);
 			System.out.println(tableName+"表创建成功！");
 		}
 	}
