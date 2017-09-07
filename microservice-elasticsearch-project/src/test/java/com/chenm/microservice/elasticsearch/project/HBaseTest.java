@@ -1,7 +1,5 @@
 package com.chenm.microservice.elasticsearch.project;
 
-import java.util.List;
-
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;

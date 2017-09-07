@@ -40,8 +40,8 @@ public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean,
 	public void afterPropertiesSet() throws Exception {
 		Configuration conf = HBaseConfiguration.create();
 //		conf.set("hbase.zookeeper.quorum","192.168.20.128:2181");
-		conf.set("hbase.rootdir", "192.168.20.128:9000/hbase");
-		conf.set("hbase.zookeeper.quorum", "192.168.20.128");
+		conf.set("hbase.rootdir", "ubuntu:9000/hbase");
+		conf.set("hbase.zookeeper.quorum", "ubuntu");
 		conf.set("hbase.zookeeper.property.clientPort", "2181");
 		try {
 			conn = ConnectionFactory.createConnection(conf);
