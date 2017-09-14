@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.elasticsearch.client.Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.InitializingBean;
 @org.springframework.context.annotation.Configuration
 public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean, DisposableBean{
 	private static final Logger logger = LoggerFactory.getLogger(HbaseConfiguration.class);
+	
+	private Client client;
 	
 	private Admin hbaseAdmin;
 	public static Configuration conf;

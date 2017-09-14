@@ -3,13 +3,21 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
-      cluster-nodes: 192.168.74.129:9300
+      cluster-nodes: 192.168.20.128:9300
       cluster-name: elasticsearch
       local: false
       properties:
         transport:
           tcp:
             connect_timeout: 60s
+
+  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    cache: false
 
 
     

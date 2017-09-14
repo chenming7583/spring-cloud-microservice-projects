@@ -20,9 +20,9 @@ public class ElasticSearchController {
 	@RequestMapping("/index/{id}")
 	public String index(@PathVariable String id){
 		
-		GetResponse response = client.prepareGet("megacorp", "employee", id).get();
-		System.out.println(response);
+//		GetResponse response = client.prepareGet("megacorp", "employee", id).get();
+//		System.out.println(response);
 		
-		return "index";
+		return "test";
 	}
 }
