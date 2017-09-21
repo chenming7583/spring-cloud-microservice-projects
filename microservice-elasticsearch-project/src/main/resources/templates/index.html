@@ -2,21 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 	
 	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-	<link th:href="@{/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
+	<link th:href="@{/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	<link th:href="@{/bootstrap/jquery/jquery-ui.min.css}" rel="stylesheet"/>
 	<title>index</title>
 </head>
 <body>
- xxxxx
+	<div class="container">
+		<h1>Search Demo</h1>
+		<div class="well">
+			<form action="">
+				<label>Search</label>
+				<input id="query" name="q"></input>
+			</form>
+		</div>
+	</div>
 
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" th:src="@{/bootstrap/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/jquery/jquery-ui.min.js}"></script>
 <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 <script th:inline="javascript">
    $(function(){
+	   alert(1);
        $.ajax({
            url:"/thymeleaf/ajax",
            data:{

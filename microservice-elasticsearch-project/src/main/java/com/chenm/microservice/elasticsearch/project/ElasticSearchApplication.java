@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 @ComponentScan(basePackages="com.chenm.microservice.elasticsearch")
 @EnableScheduling
-@EnableEurekaClient
+//@EnableEurekaClient
 public class ElasticSearchApplication 
 {
     public static void main( String[] args )

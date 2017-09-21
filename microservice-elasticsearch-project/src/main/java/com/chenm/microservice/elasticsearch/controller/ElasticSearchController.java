@@ -1,8 +1,8 @@
 package com.chenm.microservice.elasticsearch.controller;
 
-import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author chenm
  *
  */
-@RestController
+//@RestController
+@Controller
 public class ElasticSearchController {
 	
 	@Autowired
@@ -23,6 +24,6 @@ public class ElasticSearchController {
 //		GetResponse response = client.prepareGet("megacorp", "employee", id).get();
 //		System.out.println(response);
 		
-		return "test";
+		return "index";
 	}
 }
