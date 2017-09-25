@@ -14,7 +14,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 
-@org.springframework.context.annotation.Configuration
+//@org.springframework.context.annotation.Configuration
 public class HbaseConfiguration implements FactoryBean<Admin>, InitializingBean, DisposableBean{
 	private static final Logger logger = LoggerFactory.getLogger(HbaseConfiguration.class);
 	

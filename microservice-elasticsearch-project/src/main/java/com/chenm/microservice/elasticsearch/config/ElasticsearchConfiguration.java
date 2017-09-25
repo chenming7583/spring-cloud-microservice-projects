@@ -15,7 +15,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ElasticsearchConfiguration implements FactoryBean<TransportClient>, InitializingBean, DisposableBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(ElasticsearchConfiguration.class);
